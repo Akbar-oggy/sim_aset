@@ -3,6 +3,9 @@
 <?php
 include('header.php');
 ?>
+<?php
+include('../config/koneksi.php');
+?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
