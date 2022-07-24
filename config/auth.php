@@ -1,5 +1,6 @@
 <?php
-require_once 'koneksi.php';
+session_start();
+include('koneksi.php');
 
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -8,6 +9,9 @@ $query = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE username = '$usern
 
 if (mysqli_num_rows($query) == 1) {
     header('Location:../app ');
+    $user = mysqli_fetch_array($query);
+    $_SESSION['nama'] = $user['nm_karyawan'];
+    $_SESSION['level'] = $user['level'];
 } else if ($username == '' || $password == '') {
     header('Location:../index.php?error=2');
 } else {
